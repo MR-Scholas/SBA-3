@@ -99,3 +99,8 @@ body
     100%{margin-bottom:5%;}
 }
 
+.food
+{
+    margin:auto;
+    display:block;
+}

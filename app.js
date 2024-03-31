@@ -3,16 +3,11 @@ const nav=document.getElementById("navbar")
 const arrows=document.getElementById("arrows")
 const foodCon=document.getElementById("foodContainer")
 
-const docuFrag=document.createDocumentFragment()
-
-
-
-
-
 let sandwichImg=document.createElement('img')
 sandwichImg.setAttribute("src","sandwich.png")
 sandwichImg.setAttribute("alt","Sandwich")
 sandwichImg.setAttribute("class","characterSelect")
+sandwichImg.addEventListener("click",function(){foodScreen("sandwich",app)})
 foodCon.appendChild(sandwichImg)
 
 let dessertImg=document.createElement('img')
@@ -21,22 +16,29 @@ dessertImg.setAttribute("alt","Dessert")
 dessertImg.setAttribute("class","characterSelect")
 foodCon.appendChild(dessertImg)
 
-const foodScreen=(food)=>
+const foodScreen=(food,parent)=>
 {
-    if(getElementById("columnContainer")!==undefined){getElementById("columnContainer").remove()}
+    if(document.getElementById("columnContainer")!==null){document.getElementById("columnContainer").remove()}
+    const docuFrag=document.createDocumentFragment()
     const columnContainer=document.createElement('div')
     columnContainer.id='columnContainer'
     columnContainer.style.width='100%'
     columnContainer.style.height='30%'
     columnContainer.style.display='flex'
+    columnContainer.style.justifyContent='space-around'
+    columnContainer.style.marginTop='30%'
     docuFrag.appendChild(columnContainer)
-    const column=document.createElement('div')
-    column.style.height='100%'
-    column.style.width='32%'
     for(let x=0;x<3;x++)
     {
-        column.innerHTML=food[x]
-        docuFrag.columnContainer.appendChild(column)
+        const column=document.createElement('div')
+        column.style.height='100%'
+        column.style.width='32%'
+        column.style.display='block'
+        column.style.border='solid white 1px'
+        column.style.marginLeft='auto'
+        column.style.marginRight='auto'
+        column.innerHTML=`<img src=${food}/${x+1}.gif class="food">`
+        columnContainer.appendChild(column)
     }
-    app.appendChild(docuFrag)
+    parent.appendChild(docuFrag)
 }
