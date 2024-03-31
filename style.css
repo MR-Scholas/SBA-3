@@ -1,7 +1,27 @@
+:root {
+    --glow-rgb: 245 245 245;
+    
+    --lighter-rgb: 100 100 100;
+    --darker-rgb: 20 20 20;
+    
+    --primary-stripe-rgb: 230 230 230;
+    --secondary-stripe-rgb: 240 240 240;
+  }
+
 body
 {
     padding:0%;
     margin:0%;
+    overflow:hidden;
+}
+
+.backgroundContainer
+{
+    background:radial-gradient(rgb(var(--lighter-rgb)), rgb(var(--darker-rgb)));
+    height: 100%;  
+    width:100%;
+    overflow: hidden;
+    position: absolute;
 }
 
 .background
@@ -9,12 +29,30 @@ body
     height:100%;
     width:100%;
     position:absolute;
+    z-index:1;
     background-image:url(background.png);
-    background-size: 5%;
+    background-size:10%;
     animation-name:pan;
     animation-duration:120s;
     animation-timing-function:linear;
     animation-iteration-count:infinite;
+    opacity: 0.10;
+}
+
+@keyframes pan
+{
+    0% {background-position:0% 0%;}
+    100% {background-position:100% 0%;}
+}
+
+.overlay
+{
+    background: radial-gradient(circle, transparent 75%, rgb(var(--darker-rgb)));
+    position: absolute;
+    width:100%;
+    height:100%;
+    opacity:0.9;
+    z-index:2;
 }
 
 #app
@@ -24,10 +62,19 @@ body
     position:absolute;
     margin:0%;
     padding:0%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-@keyframes pan
+.characterSelect
 {
-    0% {background-position:0% 0%;}
-    100% {background-position:100% 0%;}
+    animation:floating alternate 2s ease-in-out infinite;
 }
+
+@keyframes floating
+{
+    0%{margin-bottom:0%;}
+    100%{margin-bottom:1%;}
+}
+
