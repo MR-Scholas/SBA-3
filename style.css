@@ -67,8 +67,19 @@ body
     align-items:center;
 }
 
+#arrows
+{
+    display:flex;
+    position:absolute;
+    justify-content:space-around;
+    align-items:center;
+    align-content:center;
+}
+
 .characterSelect
 {
+    margin-left:5%;
+    margin-right:5%;
     animation:floating alternate 2s ease-in-out infinite;
 }
 
