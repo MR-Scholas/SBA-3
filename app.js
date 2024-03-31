@@ -6,6 +6,9 @@ const foodCon=document.getElementById("foodContainer")
 const docuFrag=document.createDocumentFragment()
 
 
+
+
+
 let sandwichImg=document.createElement('img')
 sandwichImg.setAttribute("src","sandwich.png")
 sandwichImg.setAttribute("alt","Sandwich")
@@ -20,7 +23,9 @@ foodCon.appendChild(dessertImg)
 
 const foodScreen=(food)=>
 {
+    if(getElementById("columnContainer")!==undefined){getElementById("columnContainer").remove()}
     const columnContainer=document.createElement('div')
+    columnContainer.id='columnContainer'
     columnContainer.style.width='100%'
     columnContainer.style.height='30%'
     columnContainer.style.display='flex'
@@ -28,10 +33,10 @@ const foodScreen=(food)=>
     const column=document.createElement('div')
     column.style.height='100%'
     column.style.width='32%'
-
     for(let x=0;x<3;x++)
     {
-        docuFrag.appendChild(food.column[x])
+        column.innerHTML=food[x]
+        docuFrag.columnContainer.appendChild(column)
     }
     app.appendChild(docuFrag)
 }
