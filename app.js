@@ -1,23 +1,37 @@
 const app=document.getElementById("app")
 const nav=document.getElementById("navbar")
 const arrows=document.getElementById("arrows")
-const food=document.getElementById("foodContainer")
+const foodCon=document.getElementById("foodContainer")
+
+const docuFrag=document.createDocumentFragment()
 
 
-let sandwich=document.createElement('img')
-sandwich.setAttribute("src","sandwich.png")
-sandwich.setAttribute("alt","Sandwich")
-sandwich.setAttribute("class","characterSelect")
-food.appendChild(sandwich)
+let sandwichImg=document.createElement('img')
+sandwichImg.setAttribute("src","sandwich.png")
+sandwichImg.setAttribute("alt","Sandwich")
+sandwichImg.setAttribute("class","characterSelect")
+foodCon.appendChild(sandwichImg)
 
-let dessert=document.createElement('img')
-dessert.setAttribute("src","shortcake.png")
-dessert.setAttribute("alt","Dessert")
-dessert.setAttribute("class","characterSelect")
-food.appendChild(dessert)
+let dessertImg=document.createElement('img')
+dessertImg.setAttribute("src","shortcake.png")
+dessertImg.setAttribute("alt","Dessert")
+dessertImg.setAttribute("class","characterSelect")
+foodCon.appendChild(dessertImg)
 
-const sandwichMenu=(food)=>
+const foodScreen=(food)=>
 {
-    let item=document.createElement('div')
-    item.className="menu 1"
+    const columnContainer=document.createElement('div')
+    columnContainer.style.width='100%'
+    columnContainer.style.height='30%'
+    columnContainer.style.display='flex'
+    docuFrag.appendChild(columnContainer)
+    const column=document.createElement('div')
+    column.style.height='100%'
+    column.style.width='32%'
+
+    for(let x=0;x<3;x++)
+    {
+        docuFrag.appendChild(food.column[x])
+    }
+    app.appendChild(docuFrag)
 }
