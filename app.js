@@ -1,7 +1,16 @@
 const app=document.getElementById("app")
 const foodCon=document.getElementById("foodContainer")
 
+const defAud=document.getElementById("DefaultAudio")
+const sanAud=document.getElementById("SandwichAudio")
+const desAud=document.getElementById("DessertAudio")
 
+defAud.play()
+sanAud.play()
+desAud.play()
+defAud.volume=0.5
+sanAud.volume=0.0
+desAud.volume=0.0
 
 let sandwichImg=document.createElement('img')
 sandwichImg.setAttribute("src","sandwich.png")
@@ -26,6 +35,7 @@ app.appendChild(userInput)
 const input=document.createElement('input')
 input.setAttribute("type","text")
 input.setAttribute("value","Sandwich or Dessert?")
+input.required=true
 input.addEventListener("input",function(){setTimeout(processInput(document.querySelector("input").value),500)})
 document.getElementById("userInput").appendChild(input)
 
@@ -62,6 +72,13 @@ processInput=(value)=>
     {
         document.querySelector(".background").style.backgroundImage=`url(background-${value}.png`
         alert(`You have joined the ${value} alliance.`)
+        for(const audio of document.querySelectorAll('audio')) {audio.volume=0.0}
+        document.getElementById(`${value}Audio`).volume=0.5
     }
-    else{document.querySelector(".background").style.backgroundImage=`url(background.png`}
+    else
+    {
+        document.querySelector(".background").style.backgroundImage=`url(background.png`
+        for(const audio of document.querySelectorAll('audio')) {audio.volume=0.0}
+        document.getElementById(`DefaultAudio`).volume=0.5
+    }
 }
