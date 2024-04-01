@@ -7,6 +7,7 @@ let sandwichImg=document.createElement('img')
 sandwichImg.setAttribute("src","sandwich.png")
 sandwichImg.setAttribute("alt","Sandwich")
 sandwichImg.setAttribute("class","characterSelect")
+sandwichImg.setAttribute("id","sandwichImg")
 sandwichImg.addEventListener("click",function(){foodScreen("sandwich",app)})
 foodCon.appendChild(sandwichImg)
 
@@ -14,6 +15,8 @@ let dessertImg=document.createElement('img')
 dessertImg.setAttribute("src","shortcake.png")
 dessertImg.setAttribute("alt","Dessert")
 dessertImg.setAttribute("class","characterSelect")
+dessertImg.setAttribute("id","dessertImg")
+dessertImg.addEventListener("click",function(){foodScreen("dessert",app)})
 foodCon.appendChild(dessertImg)
 
 const foodScreen=(food,parent)=>
@@ -37,7 +40,7 @@ const foodScreen=(food,parent)=>
         column.style.border='solid white 1px'
         column.style.marginLeft='auto'
         column.style.marginRight='auto'
-        column.innerHTML=`<img src=${food}/${x+1}.gif class="food">`
+        column.innerHTML=`<img src=${food}/${x+1}.gif class="food" id="${food}${x+1}">`
         columnContainer.appendChild(column)
     }
     parent.appendChild(docuFrag)
