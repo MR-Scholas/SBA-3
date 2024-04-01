@@ -68,6 +68,16 @@ const foodScreen=(food,parent)=>
 
 processInput=(value)=>
 {
+    if(value==="Sandwich")
+    {
+        document.querySelector(':root').style.setProperty('--lighter-rgb','200 100 100')
+        document.querySelector(':root').style.setProperty('--darker-rgb','120 20 20')
+    }
+    if(value==="Dessert")
+    {
+        document.querySelector(':root').style.setProperty('--lighter-rgb','100 100 200')
+        document.querySelector(':root').style.setProperty('--darker-rgb','20 20 120')
+    }
     if(value==="Sandwich"||value==="Dessert")
     {
         document.querySelector(".background").style.backgroundImage=`url(background-${value}.png`
@@ -80,5 +90,7 @@ processInput=(value)=>
         document.querySelector(".background").style.backgroundImage=`url(background.png`
         for(const audio of document.querySelectorAll('audio')) {audio.volume=0.0}
         document.getElementById(`DefaultAudio`).volume=0.5
+        document.querySelector(':root').style.setProperty('--lighter-rgb','100 100 100')
+        document.querySelector(':root').style.setProperty('--darker-rgb','20 20 20')
     }
 }
