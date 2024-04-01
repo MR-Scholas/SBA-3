@@ -1,11 +1,6 @@
 :root {
-    --glow-rgb: 245 245 245;
-    
     --lighter-rgb: 100 100 100;
     --darker-rgb: 20 20 20;
-    
-    --primary-stripe-rgb: 230 230 230;
-    --secondary-stripe-rgb: 240 240 240;
   }
 
 body
@@ -68,14 +63,6 @@ body
     align-items:center;
     align-content:center;
     border:solid black 1px;
-}
-
-#arrows
-{
-    display:flex;
-    position:absolute;
-    justify-content:space-around;
-    align-items:center;
 }
 
 #foodContainer

@@ -1,6 +1,4 @@
 const app=document.getElementById("app")
-const nav=document.getElementById("navbar")
-const arrows=document.getElementById("arrows")
 const foodCon=document.getElementById("foodContainer")
 
 let sandwichImg=document.createElement('img')
@@ -44,4 +42,5 @@ const foodScreen=(food,parent)=>
         columnContainer.appendChild(column)
     }
     parent.appendChild(docuFrag)
+    document.querySelector(".background").style.backgroundImage=`url(background-${food}.png`
 }
