@@ -92,3 +92,8 @@ body
     display:block;
     height:100%;
 }
+
+#userInput
+{
+    position:absolute;
+}

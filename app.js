@@ -1,6 +1,8 @@
 const app=document.getElementById("app")
 const foodCon=document.getElementById("foodContainer")
 
+
+
 let sandwichImg=document.createElement('img')
 sandwichImg.setAttribute("src","sandwich.png")
 sandwichImg.setAttribute("alt","Sandwich")
@@ -16,6 +18,16 @@ dessertImg.setAttribute("class","characterSelect")
 dessertImg.setAttribute("id","dessertImg")
 dessertImg.addEventListener("click",function(){foodScreen("dessert",app)})
 foodCon.appendChild(dessertImg)
+
+const userInput=document.createElement('form')
+userInput.setAttribute("id","userInput")
+app.appendChild(userInput)
+
+const input=document.createElement('input')
+input.setAttribute("type","text")
+input.setAttribute("value","Sandwich or Dessert?")
+input.addEventListener("input",function(){setTimeout(processInput(document.querySelector("input").value),500)})
+document.getElementById("userInput").appendChild(input)
 
 const foodScreen=(food,parent)=>
 {
@@ -42,5 +54,14 @@ const foodScreen=(food,parent)=>
         columnContainer.appendChild(column)
     }
     parent.appendChild(docuFrag)
-    document.querySelector(".background").style.backgroundImage=`url(background-${food}.png`
+}
+
+processInput=(value)=>
+{
+    if(value==="Sandwich"||value==="Dessert")
+    {
+        document.querySelector(".background").style.backgroundImage=`url(background-${value}.png`
+        alert(`You have joined the ${value} alliance.`)
+    }
+    else{document.querySelector(".background").style.backgroundImage=`url(background.png`}
 }
